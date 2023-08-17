@@ -1,0 +1,13 @@
+name: Sleep for 5 seconds
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sleep:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Sleep for 5 seconds
+      run: sleep 5
