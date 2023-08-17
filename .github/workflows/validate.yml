@@ -10,8 +10,11 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
-    - name: Display tree command output
-      run: tree -a -I '.git'
+    - name: Display info
+      run: | 
+        pwd
+        tree -a -I '.git'
+        git status
     - name: Call pull request check for merge queue
       if: ${{ github.event_name == 'merge_group' }}
       uses: ./.github/workflows/merge-queue.yml

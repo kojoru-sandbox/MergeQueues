@@ -1,9 +1,7 @@
 name: Sleep for 5 seconds
 
 on:
-  push:
-    branches:
-      - main
+  workflow_call:
 
 jobs:
   sleep:
