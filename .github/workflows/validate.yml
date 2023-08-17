@@ -1,9 +1,0 @@
-name: Run Pull Request Checks
-
-on:
-  pull_request:
-  merge_group:
-
-jobs:
-  validate-pr:
-    uses: ${{ github.event_name == 'merge_group' && './.github/workflows/merge-queue.yml' || './.github/workflows/pull-request.yml' }} 

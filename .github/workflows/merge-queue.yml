@@ -1,10 +1,10 @@
 name: Sleep for 5 minutes
 
 on:
-  workflow_call:
+  merge_group:
 
 jobs:
-  sleep:
+  validate-pr:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
