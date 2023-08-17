@@ -6,18 +6,4 @@ on:
 
 jobs:
   validate-pr:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-    - name: Display info
-      run: | 
-        pwd
-        tree -a -I '.git'
-        git status
-    - name: Call pull request check for merge queue
-      if: ${{ github.event_name == 'merge_group' }}
-      uses: ./.github/workflows/merge-queue.yml
-    - name: Call pull request check for pull request
-      if: ${{ github.event_name == 'pull_request' }}
-      uses: ./.github/workflows/pull-request.yml
+    uses: ${{ github.event_name == 'merge_group' && './.github/workflows/merge-queue.yml' || './.github/workflows/pull-request.yml' }} 
